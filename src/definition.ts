@@ -27,6 +27,10 @@ export class UiflowDefinitionProvider implements DefinitionProvider {
 		if (!section) {
 			return undefined;
 		}
+		const match_comment = lineText.text.match(/#.*/)
+		if (!match_comment) {
+			return undefined;
+		}
 		const pos = new Position(section.lines, 0);
 		const location = new Location(document.uri, pos);
 		return location;
